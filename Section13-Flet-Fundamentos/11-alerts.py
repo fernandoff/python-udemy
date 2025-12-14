@@ -4,18 +4,18 @@ def main(page:ft.Page):
     page.title = "Usando AlertDialogs e Banner"
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     
-    action_button_style = ft.ButtonStyle(color=ft.colors.BLUE)
+    action_button_style = ft.ButtonStyle(color=ft.Colors.BLUE)
     
     def close_banner(e):
         page.close(banner)
         page.add(ft.Text("Clicado: "+e.control.text))
     
     banner = ft.Banner(
-        bgcolor=ft.colors.AMBER_100,
-        leading=ft.Icon(ft.icons.WARNING_AMBER_ROUNDED, color=ft.colors.AMBER, size=40),
+        bgcolor=ft.Colors.AMBER_100,
+        leading=ft.Icon(ft.Icons.WARNING_AMBER_ROUNDED, color=ft.Colors.AMBER, size=40),
         content=ft.Text(
             value="OOps, there were some errors while trying to delete the file.",
-            color=ft.colors.BLACK,
+            color=ft.Colors.BLACK,
         ),
         actions=[
             ft.TextButton(text="Retry", style=action_button_style, on_click=close_banner),

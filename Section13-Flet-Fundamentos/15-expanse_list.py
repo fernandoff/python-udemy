@@ -24,38 +24,64 @@ def main(page:ft.Page):
         panel.controls.remove(e.control.data)
         page.update()
     
-    panel = ft.ExpansionPanelList(
-        expand_icon_color=ft.colors.AMBER,
-        elevation=8,
-        divider_color=ft.colors.AMBER,
-        on_change=handle_change
-    )
-    
-    for item in faq_items:
-        exp = ft.ExpansionPanel(
-            header=ft.ListTile(title=ft.Text(item["question"]))
+    def criar_componentes():
+        panel = ft.ExpansionPanelList(
+            expand_icon_color=ft.Colors.AMBER,        
+            elevation=8,
+            divider_color=ft.Colors.AMBER,
+            on_change=handle_change,        
+            expanded_header_padding=ft.Padding(0, 0, 0, 0)        
         )
         
-        exp.content = ft.Column(
-            [
-                ft.ListTile(
-                    title=ft.Text(item["answer"])
+        for item in faq_items:
+            exp = ft.ExpansionPanel(
+                header=ft.ListTile(
+                    title=ft.Text(item["question"]),
+                    bgcolor=ft.Colors.BLUE_100,                
+                    text_color=ft.Colors.BLUE_900
                 ),
-                ft.Row(
-                    [
-                        ft.TextButton("Marcar como útil",
-                                      on_click=lambda e, item=item: page.add(
-                                          ft.Text(f"Você marcou a resposta: {item['answer']} como útil",
-                                                  color=ft.colors.GREEN_600)
-                                      )),
-                        ft.IconButton(ft.icons.DELETE,
-                                      on_click=handle_delete, data=exp)
-                    ],
-                    alignment=ft.MainAxisAlignment.END
-                )
-            ]
+                can_tap_header=True,
+                bgcolor=ft.Colors.BLUE_50,            
+            )
+            
+            exp.content = ft.Column(
+                [
+                    ft.ListTile(
+                        title=ft.Text(item["answer"]),
+                        bgcolor=ft.Colors.BLUE_800
+                    ),
+                    ft.Row(
+                        [
+                            ft.TextButton("Marcar como útil",
+                                          on_click=lambda e, item=item: page.add(
+                                              ft.Text(f"Você marcou a resposta: {item['answer']} como útil",
+                                                      color=ft.Colors.GREEN_600)
+                                          )),
+                            ft.IconButton(ft.Icons.DELETE,
+                                          on_click=handle_delete, data=exp)
+                        ],
+                        alignment=ft.MainAxisAlignment.END
+                    )
+                ]
+            )
+            panel.controls.append(exp)
+
+        page.update()
+        
+        return panel
+    
+    def reiniciar_pagina(e):
+        page.controls.clear()
+        page.add(
+            ft.ElevatedButton("Reiniciar pagina", on_click=reiniciar_pagina),
+            criar_componentes()
         )
-        panel.controls.append(exp)
-    page.add(panel)
+        page.update()
+    
+    panel = criar_componentes()
+    page.add(
+        ft.ElevatedButton("Reiniciar pagina", on_click=reiniciar_pagina),
+        panel
+    )
 
 ft.app(target=main)

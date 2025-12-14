@@ -2,20 +2,28 @@ import flet as ft
 
 def main(page:ft.Page):
     page.title = "Cartão de Aniversário"
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
     
     card_content = ft.Column(
         [
             ft.ListTile(
-                leading=ft.Icon(ft.icons.CAKE),
+                leading=ft.Icon(ft.Icons.CAKE),
                 title=ft.Text("Feliz aniversário!", size=25, weight="bold"),
                 subtitle=ft.Text("Que seu dia seja repleto de alegrias, risadas e muito amor.")
             ),
             ft.Row(
                 [
-                    ft.TextButton("Compartilhar", 
+                    ft.TextButton(
+                            "Compartilhar", 
                             on_click=lambda _: page.add(ft.Text("Mensagem compartilhada com sucesso",
-                                                                color=ft.colors.GREEN_600))),
-                    ft.TextButton("Enviar votos")
+                            color=ft.Colors.GREEN_600))
+                    ),
+                    ft.TextButton(
+                        "Enviar votos", 
+                        on_click=lambda _: page.add(ft.Text("Votos enviados com sucesso",
+                        color=ft.Colors.GREEN_600))
+                    ),
                 ],
                 alignment=ft.MainAxisAlignment.END
             )
