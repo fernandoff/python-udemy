@@ -16,8 +16,8 @@ Base.metadata.create_all(engine)
 
 # Inserir dados
 def adiciona_filme(nome, ano, nota):
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    session = sessionmaker(bind=engine)
+    session = session()
     filme = Filme(nome=nome, ano=ano, nota=nota)
     session.add(filme)
     session.commit()
@@ -28,8 +28,8 @@ def adiciona_filme(nome, ano, nota):
 
 # Atualizar dados
 def atualiza_filme(id, nome=None, ano=None, nota=None):
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    session = sessionmaker(bind=engine)
+    session = session()
     filme = session.query(Filme).filter_by(id=id).first()
     if filme:
         if nome is not None:
@@ -45,8 +45,8 @@ def atualiza_filme(id, nome=None, ano=None, nota=None):
 
 # Excluir dados
 def exclui_filme(id):
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    session = sessionmaker(bind=engine)
+    session = session()
     filme = session.query(Filme).filter_by(id=id).first()
     if filme:
         session.delete(filme)

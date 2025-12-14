@@ -35,7 +35,7 @@ def insere_dados(nome, ano, nota):
 def obter_dados():
     conexao = conecta_bd()
     cursor = conexao.cursor()
-    cursor.execute("SELECT * FROM filmes")
+    cursor.execute("SELECT * FROM filmes ORDER BY id DESC")
     dados = cursor.fetchall()
     cursor.close()
     return dados

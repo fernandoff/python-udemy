@@ -12,7 +12,6 @@ if st.button('Adicionar'):
         st.error("Por favor, digite o nome do filme.")
     elif dados.insere_dados(nome, ano, nota):        
         st.success("Filme cadastrado com sucesso!")
-        st.rerun()
     else:
         st.error(f"O filme '{nome}' já está cadastrado!")
     
