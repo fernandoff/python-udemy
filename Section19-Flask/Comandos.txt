@@ -1,0 +1,8 @@
+- Criar ambiente virtual
+  python -m venv .venv
+
+- Ativar ambiente virtual
+  ./.venv/Scripts/activate
+
+- pip install flask 
+- flask --version
