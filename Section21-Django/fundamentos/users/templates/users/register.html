@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Cadastro de Usuário
+{% endblock %}
+
+{% block content %}
+    <h2>Cadastro de Usuário</h2>
+    <form class="form-with-validation" action="/users/register" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button class="form-submit">Cadastrar</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Products
+{% endblock %}
+{% block content %}
+    <section>
+        <h2>Product List</h2>
+        {% for product in products %}
+            <article>
+                <h3>
+                    <a href="{% url 'products:page' slug=product.slug %}">
+                    {{product.name}}
+                    </a>
+                </h3>
+                <h3>R${{product.price}}</h3>
+                <h3>Estoque:{{product.stock}}</h3>
+            </article>
+            <hr>
+        {% endfor %}
+    </section>
+{% endblock %}

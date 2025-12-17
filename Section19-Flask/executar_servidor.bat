@@ -1,3 +1,3 @@
 set FLASK_APP=app.py
 
-flask run --port=5001
+flask run --port=5001 --debug

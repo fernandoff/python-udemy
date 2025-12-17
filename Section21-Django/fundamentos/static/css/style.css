@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-heigth: 100vh;
+    display: flex;
+    flex-flow: column;
+    font-size: 3rem;
+    background-color: black;
+    color: whitesmoke;
+}
+
+h2, p {
+    text-align: center;
+}
+
+nav {
+    padding: 1rem;
+    background-color: #44B78B;
+    color: white;
+    font-size: 2.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: #81dbb8;
+}
+
+a:hover {
+    opacity: .85;
+}
+
+.banner {
+    display: block;
+    width: 100%;
+    max-width: 500px
+}
+
+.form-with-validation {
+    font-size: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.form-with-validation div{
+    display: flex;
+    flex-flow: column;
+    gap: 0.5rem;
+}
+
+.form-with-validation input {
+    padding: 0.25rem;
+    max-width: 300px;
+}
+
+.form-submit {
+    padding: 0.5rem;
+    border-radius: 10px;
+    width: 125px;
+}
+
+.logout {
+    display: inline-block;
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    color: #81dbb8;
+    font-size: 2.5rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.logout-button:hover {
+    opacity: .85;
+}

@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Home
+{% endblock %}
+{% block content %}
+    <h2>Home {{nome}}</h2>
+    <p>Acesse a página <a href="/about">About</a></p>
+    <hr>
+    <h3>Informações da Pessoa:</h3>
+    <p>Nome: {{pessoa.nome}}</p>
+    <p>Idade: {{pessoa.idade}}</p>
+    <p>Cidade: {{pessoa.cidade}}</p>
+{% endblock %}

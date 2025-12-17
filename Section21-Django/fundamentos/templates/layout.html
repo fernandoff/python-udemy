@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>
+        {% block title %}
+            DjangoAPP
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="{% url 'products:list' %}">Products</a>
+        <a href="{% url 'products:new' %}">NewProduct</a>
+        {% if user.is_authenticated %}
+            <form class="logout" action="{% url 'users:logout' %}" method="POST">
+                {% csrf_token %}
+                <button class="logout-button">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'users:register' %}">SignUp</a>
+            <a href="{% url 'users:login' %}">Login</a>
+        {% endif %}
+        
+        
+    </nav>
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+</body>
+</html>
