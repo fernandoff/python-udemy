@@ -10,5 +10,15 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
-    
+        return (
+            f"Product(\n"
+            f"  id={self.id},\n"
+            f"  name='{self.name}',\n"
+            f"  description='{self.description}',\n"
+            f"  price={self.price},\n"
+            f"  stock={self.stock},\n"
+            f"  slug='{self.slug}',\n"
+            f"  banner='{self.banner}',\n"
+            f"  created_at='{self.created_at}'\n"
+            f")"
+        )

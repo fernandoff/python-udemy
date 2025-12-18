@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Desafio {{dia|title}}
+{% endblock %}
+
+{% block content %}    
+    {% include "./includes/header.html" %}
+    <h1 style="text-align: center;">Desafio de {{dia|title}}</h1>
+    <hr>
+    {% if desafio is not None %}
+        <h2>{{desafio}}</h2>
+    {% else %}
+        <p>Não há desafio nesse dia</p>
+    {% endif %}
+{% endblock %}

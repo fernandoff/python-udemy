@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Desafios da Semana
+{% endblock %}
+
+{% block content %}
+    {% include "./includes/header.html" %}
+    <ul>
+        {% for dia in dias %}
+            <li>
+                <a href="{% url 'desafio_semanal' dia=dia %}">{{dia|title}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+    
